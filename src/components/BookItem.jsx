@@ -1,6 +1,7 @@
 import { Link } from "react-router";
 
 //整理BookList中的元件
+//第一頁頁面內容
 function BookItem({ book }) {
     return (
         <section key={book.ID} className='pt-4 px-3 '>
@@ -9,7 +10,6 @@ function BookItem({ book }) {
                 <Link to={`/books/ID/${book.ID}`}>
                     <img className='w-full' src={book.cover} alt={book.title} />
                 </Link>
-
                 {/*padding 4 */}
                 <div className="p-4">
                     {/*margin 1 */}
@@ -25,9 +25,9 @@ function BookItem({ book }) {
                     </p>
                     {/*讓See More 跟 Price放置兩側 */}
                     <div className="flex justify-between flex-wrap">
-                        <a href="#" className="">
+                        <Link to={`/books/ID/${book.ID}`}>
                             See More
-                        </a>
+                        </Link>
                         <span className="">
                             {book.price}
                         </span>

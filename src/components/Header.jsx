@@ -1,6 +1,14 @@
-function Header() {
+import { Link } from "react-router";
+
+function Header({ title }) {
     return (
-        <header></header>
+        <header className="text-center flex flex-col items-center justify-center header">
+            <Link to="/">
+                <h2 className="text-blue-500 pb-2 text-3xl font-bold">
+                    {title}
+                </h2>
+            </Link>
+        </header>
     );
 }
 

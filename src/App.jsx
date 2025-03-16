@@ -4,7 +4,8 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import Home from './pages/Home'
 import { BrowserRouter, Route, Routes } from 'react-router'
-import Book from './pages/book'
+import Book from './pages/Book'
+
 
 function App() {
   return (
@@ -20,7 +21,7 @@ function App() {
       </Routes>
     </BrowserRouter>
 
-  )
+  );
 }
 
 export default App;
