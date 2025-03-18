@@ -23,7 +23,7 @@ function BookDetail({ book }) {
                 <p className="text-white opacity-80 text-base mb-10">{book.summary}</p>
                 {/* 數量與價格按鈕 */}
                 <div className="flex flex-col gap-4">
-                    <p className="text-2xl font-semibold">$ {book.price}</p>
+                    <p className="text-2xl font-semibold">US$ {book.price}.00</p>
                     <AddToCart />
                 </div>
             </div>
