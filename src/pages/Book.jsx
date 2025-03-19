@@ -19,7 +19,6 @@ function Book() {
     return (
         <div>
             <Header title={title} />
-            <hr className="pb-8 w-1/2 mx-auto opacity-20" />
             <BookDetail book={book} />
             <Footer />
         </div>
