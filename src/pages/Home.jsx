@@ -1,15 +1,15 @@
 import BookList from "../components/BookList";
-import Header from "../components/Header";
 import Footer from "../components/Footer";
+import Header from "../components/Header";
 
 function Home() {
     return (
-        <>
+        <div>
             <Header
                 title="Book Store" />
             <BookList />
             <Footer />
-        </>
+        </div>
     );
 }
 

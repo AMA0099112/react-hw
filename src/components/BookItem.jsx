@@ -4,7 +4,7 @@ import { Link } from "react-router";
 //第一頁頁面內容
 function BookItem({ book }) {
     return (
-        <section key={book.ID} className='pt-4 px-3 '>
+        <section key={book.ID} className='pt-4 px-3 lg:px-4 mt-4'>
             {/*每本書的資料都用border外框線包起來 */}
             <div className='border border-gray-500 rounded overflow-hidden'>
                 <Link to={`/books/ID/${book.ID}`}>
@@ -13,14 +13,13 @@ function BookItem({ book }) {
                 {/*padding 4 */}
                 <div className="p-4">
                     {/*margin 1 */}
-                    <h6 className="text-white opacity-80 mb-1">
-
+                    <h6 className="text-white mb-1 font-bold">
                         {book.title}
                     </h6>
-                    <h5 className="text-white mb-3">
+                    <h5 className="text-white opacity-80 mb-3">
                         {book.author}
                     </h5>
-                    <p className="text-white opacity-70 mb-3">
+                    <p className="text-white opacity-60 mb-3">
                         {book.summary}
                     </p>
                     {/*讓See More 跟 Price放置兩側 */}
@@ -29,7 +28,7 @@ function BookItem({ book }) {
                             See More
                         </Link>
                         <span className="">
-                            {book.price}
+                            $US{book.price}.00
                         </span>
                     </div>
                 </div>

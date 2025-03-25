@@ -3,7 +3,7 @@ import AddToCart from "./AddToCart";
 // 書籍細節購買頁面
 function BookDetail({ book }) {
     return (
-        <div className="grid grid-cols-1 lg:grid-cols-24 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-24 mt-4 gap-8">
             {/* 左側書籍圖 */}
             <div className="lg:col-span-6 lg:col-start-3">
                 <img
@@ -18,9 +18,9 @@ function BookDetail({ book }) {
 
             {/* 右側購買書籍資訊 */}
             <div className="lg:col-span-14 px-4">
-                <h1 className="text-white font-bold text-2xl mb-2">{book.title}</h1>
-                <h2 className="text-white opacity-40 text-lg mb-8">by {book.author}</h2>
-                <p className="text-white opacity-80 text-base mb-10">{book.summary}</p>
+                <h1 className="text-white font-bold text-2xl mb-2 mt-4">{book.title}</h1>
+                <h2 className="text-white opacity-40 text-lg mb-4">by {book.author}</h2>
+                <p className="text-white opacity-80 text-base mb-6">{book.summary}</p>
                 {/* 數量與價格按鈕 */}
                 <div className="flex flex-col gap-4">
                     <p className="text-2xl font-semibold">US$ {book.price}.00</p>

@@ -1,0 +1,37 @@
+.Footer {
+    display: grid;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    grid-template-areas:
+        "content content"
+        "followUs contactUs"
+        "copyRight copyRight";
+    grid-template-rows: auto 3rem;
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
+}
+
+@media (min-width: 1024px) {
+    .Footer {
+        grid-template-areas:
+            "content followUs contactUs"
+            "copyRight copyRight copyRight";
+        grid-template-columns: 12fr 2fr minmax(7rem, 1fr);
+    }
+}
+
+.Footer-content {
+    grid-area: content;
+}
+
+.Footer-followUs {
+    grid-area: followUs;
+}
+
+.Footer-contactUs {
+    grid-area: contactUs;
+}
+
+.Footer-copyRight {
+    grid-area: copyRight;
+}
