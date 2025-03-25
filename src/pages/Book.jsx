@@ -18,6 +18,9 @@ function Book() {
     }
     return (
         <div>
+            <Helmet>
+                <title>{title}</title>
+            </Helmet>
             <Header title={title} />
             <BookDetail book={book} />
             <Footer />
