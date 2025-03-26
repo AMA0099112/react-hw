@@ -13,7 +13,7 @@ function Header({ title }) {
                 <hr className="my-[10px] mx-auto w-[10rem] border-0 border-t-[3px] opacity-20 rounded" />
                 {/* margin 寬度 邊緣粗度 透明度 圓角 */}
             </div>
-            <NavBar />
+            {/* <NavBar /> */}
         </header>
     );
 }

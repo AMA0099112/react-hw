@@ -22,14 +22,30 @@ function BookDetail({ book }) {
                 <h2 className="text-white opacity-40 text-lg mb-4">by {book.author}</h2>
                 <p className="text-white opacity-80 text-base mb-6">{book.summary}</p>
                 {/* 數量與價格按鈕 */}
-                <div className="flex flex-col gap-4">
-                    <p className="text-2xl font-semibold">US$ {book.price}.00</p>
+                <div className="flex  gap-4 place-content-between">
+                    <div className="text-2xl font-semibold">US$ {book.price}.00</div>
+                    <div className="flex items-center gap-2">
+                        <span className="font-bold">Qty:</span>
+                        <select
+                            className="select select-bordered w-20 bg-[#111818] text-white"
+                            defaultValue={book.countInStock > 0 ? 1 : 0}>
+                            {[...Array(book.countInStock).keys()].map((x) => (
+                                <option key={x + 1} value={x + 1}>
+                                    {x + 1}
+                                </option>
+                            ))}
+                        </select>
+                    </div>
+                </div>
+                <div className="flex flex-col mt-5">
                     <AddToCart />
                 </div>
+
             </div>
 
         </div>
     );
 }
+
 
 export default BookDetail;

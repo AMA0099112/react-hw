@@ -3,12 +3,13 @@ import books from "../json/books.json";
 import Header from "../components/Header";
 import BookDetail from "../components/BookDetail";
 import Footer from "../components/Footer";
+import { Helmet } from "react-helmet-async";
 function Book() {
     const { bookID } = useParams();
     // book參數傳遞給BookDetail
     const book = books.find(
         // bookID(字串)要轉換成數字才能讀取
-        (x) => x.ID === Number(bookID)
+        (x) => x.ID === bookID
     );
     const title = "Book Detail";
 
