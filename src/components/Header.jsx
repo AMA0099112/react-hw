@@ -1,9 +1,11 @@
 import { Link } from "react-router";
-import NavBar from "./Navbar";
+import NavBar from "@/components/Navbar";
 
 function Header({ title }) {
+
+    //const [isOpen, setIsOpen] = useState(false);
     return (
-        <header className="text-center flex flex-col items-center justify-center header">
+        <header className="relative text-center flex flex-col items-center header">
             <Link to="/">
                 <h2 className="text-accent text-3xl font-bold">
                     {title}
@@ -13,7 +15,7 @@ function Header({ title }) {
                 <hr className="my-[10px] mx-auto w-[10rem] border-0 border-t-[3px] opacity-20 rounded" />
                 {/* margin 寬度 邊緣粗度 透明度 圓角 */}
             </div>
-            {/* <NavBar /> */}
+            <NavBar />
         </header>
     );
 }

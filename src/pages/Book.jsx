@@ -1,8 +1,8 @@
 import { useParams } from "react-router";
-import books from "../json/books.json";
-import Header from "../components/Header";
-import BookDetail from "../components/BookDetail";
-import Footer from "../components/Footer";
+import books from "@/json/books.json";
+import Header from "@/components/Header";
+import BookDetail from "@/components/BookDetail";
+import Footer from "@/components/Footer";
 import { Helmet } from "react-helmet-async";
 function Book() {
     const { bookID } = useParams();

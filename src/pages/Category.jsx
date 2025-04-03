@@ -1,8 +1,8 @@
 import Footer from "daisyui/components/footer";
-import BookList from "../components/BookList";
-import Header from "../components/Header";
+import BookList from "@/components/BookList";
+import Header from "@/components/Header";
 import { useParams } from "react-router";
-import books from "../json/books.json";
+import books from "@/json/books.json";
 import _ from "lodash";
 
 //這是類別 但json檔中沒有類別 所以改用title分類
