@@ -1,5 +1,6 @@
 import { Link } from "react-router";
 import NavBar from "@/components/Navbar";
+import CartSummary from "@/components/CartSummary";
 
 function Header({ title }) {
 
@@ -11,6 +12,7 @@ function Header({ title }) {
                     {title}
                 </h2>
             </Link>
+            <CartSummary />
             <div className="flex mb-2 justify-center">
                 <hr className="my-[10px] mx-auto w-[10rem] border-0 border-t-[3px] opacity-20 rounded" />
                 {/* margin 寬度 邊緣粗度 透明度 圓角 */}
