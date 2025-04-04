@@ -1,7 +1,8 @@
-import label from "daisyui/components/label";
+
 import { useState } from "react";
-import { NavLink } from "react-router";
+
 import HamMenu from "@/components/HamMenu";
+import { NavLink } from "react-router";
 
 function NavBar() {
     const [isOpen, setIsOpen] = useState(false);

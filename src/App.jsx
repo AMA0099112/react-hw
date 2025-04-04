@@ -19,7 +19,7 @@ function App() {
             <Route path='/' element={<Home />} />
             <Route path='books'>
               {/* :是可改變動態變數 */}
-              <Route path="category/:categoryName" element={<Category />} />
+              {/* <Route path="category/:categoryName" element={<Category />} /> */}
               <Route path='ID/:bookID' element={<Book />} />
             </Route>
           </Routes>

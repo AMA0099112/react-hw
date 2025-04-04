@@ -1,7 +1,9 @@
+import { useState } from "react";
 import AddToCart from "./AddToCart";
 
 // 書籍細節購買頁面
 function BookDetail({ book }) {
+    const [qty, setQty] = useState(book.countInStock > 0 ? 1 : 0);
     return (
         <div className="grid grid-cols-1 lg:grid-cols-24 mt-4 gap-8">
             {/* 左側書籍圖 */}
@@ -28,7 +30,8 @@ function BookDetail({ book }) {
                         <span className="font-bold">Qty:</span>
                         <select
                             className="select select-bordered w-20 bg-[#111818] text-white"
-                            defaultValue={book.countInStock > 0 ? 1 : 0}>
+                            defaultValue={book.countInStock > 0 ? 1 : 0}
+                            onChange={event => setQty(Number(event.target.value))}>
                             {[...Array(book.countInStock).keys()].map((x) => (
                                 <option key={x + 1} value={x + 1}>
                                     {x + 1}
@@ -36,9 +39,12 @@ function BookDetail({ book }) {
                             ))}
                         </select>
                     </div>
+                    <p>
+                        <span className="font-bold">Total Price</span>: {book.price * qty}
+                    </p>
                 </div>
                 <div className="flex flex-col mt-5">
-                    <AddToCart />
+                    <AddToCart book={book} qty={qty} />
                 </div>
 
             </div>
