@@ -4,14 +4,15 @@ import { useState } from "react";
 import HamMenu from "@/components/HamMenu";
 import { NavLink } from "react-router";
 
+
 function NavBar() {
     const [isOpen, setIsOpen] = useState(false);
 
     // 指向網址to與標題label
     const navBarContent = [
-        { to: "/books/category/one", label: "One" },
-        { to: "/books/category/two", label: "Two" },
-        { to: "/books/category/three", label: "Three" },
+        { to: "books/category/one", label: "One" },
+        { to: "books/category/two", label: "Two" },
+        { to: "books/category/three", label: "Three" },
     ];
 
     const NavBarContent = () => (
