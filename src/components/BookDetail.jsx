@@ -1,9 +1,22 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import AddToCart from "./AddToCart";
+import { useSearchParams } from "react-router";
 
 // 書籍細節購買頁面
 function BookDetail({ book }) {
-    const [qty, setQty] = useState(book.countInStock > 0 ? 1 : 0);
+    const [searchParams] = useSearchParams();
+    const [qty, setQty] = useState(1); // 預設為 1
+
+    useEffect(() => {
+        // 從網址抓出qtyFromBasket的值
+        const qtyFromBasket = searchParams.get('qtyFromBasket');
+        // 如果有 qtyFromBasket，就轉成數字；如果沒有，就根據商品庫存來預設值
+        const parsedQty = qtyFromBasket ? Number(qtyFromBasket) : (book.countInStock > 0 ? 1 : 0);
+
+        //如果 parsedQty 不是數字（或是負的），就強制變成 0。否則就照原本的數量。
+        setQty(isNaN(parsedQty) || parsedQty < 0 ? 0 : parsedQty);
+    }, [searchParams, book.countInStock]);//只要 searchParams 或 product.countInStock 改變，就重新執行這段邏輯
+
     return (
         <div className="grid grid-cols-1 lg:grid-cols-24 mt-4 gap-8">
             {/* 左側書籍圖 */}
