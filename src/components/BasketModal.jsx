@@ -27,7 +27,7 @@ function BasketModal({ isOpen, toggleModal }) {
                             ) : (
                                 cartItems.map(item => (
                                     <li key={item.ID} className="flex justify-between items-center pb-4 mb-4 border-b border-gray-400">
-                                        <Link to={`/books/ID${item.ID}?qtyFromBasket-${item.qty}`} onClick={handleCancel}>
+                                        <Link to={`/books/ID${item.ID}?qtyFromBasket=${item.qty}`} onClick={handleCancel}>
                                             <img className="max-w-16 max-h-16 flex-1 cursor-pointer" src={item.cover} alt={item.title} />
                                         </Link>
                                         <div className="ml-8 flex-8 w-48 text-left">

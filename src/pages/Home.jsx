@@ -2,9 +2,14 @@ import { Helmet } from "react-helmet-async";
 import BookList from "@/components/BookList";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
+import { useBooks } from "@/react-query";
+
 
 function Home() {
     const title = "Book Store"
+    const { data, isLoading } = useBooks();
+    const books = data || [{ id: 1 }, { id: 2 }, { id: 3 }, { id: 4 }, { id: 5 }, { id: 6 }];
+
     return (
         <div>
             <Helmet>
@@ -12,7 +17,7 @@ function Home() {
             </Helmet>
             <Header
                 title={title} />
-            <BookList />
+            <BookList books={books} isLoading={isLoading} />
             <Footer />
         </div>
     );
