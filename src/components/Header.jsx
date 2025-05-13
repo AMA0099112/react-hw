@@ -1,6 +1,7 @@
 import { Link } from "react-router";
 import NavBar from "@/components/Navbar";
 import CartSummary from "@/components/CartSummary";
+import UserInfo from "./UserInfo";
 
 function Header({ title }) {
 
@@ -12,7 +13,10 @@ function Header({ title }) {
                     {title}
                 </h2>
             </Link>
-            <CartSummary />
+            <div className="absolute right-4 top-8 grid grid-cols-3 gap-0 w-[6rem] md:w-[9rem]">
+                <UserInfo />
+                <CartSummary />
+            </div>
             <div className="flex mb-2 justify-center">
                 <hr className="my-[10px] mx-auto w-[10rem] border-0 border-t-[3px] opacity-20 rounded" />
                 {/* margin 寬度 邊緣粗度 透明度 圓角 */}

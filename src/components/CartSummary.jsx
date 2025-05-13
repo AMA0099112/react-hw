@@ -20,7 +20,7 @@ function CartSummary() {
         <>
             <nav
                 onClick={toggleOpen}
-                className="inline-block absolute top-6 right-2 md:right-6 cursor-pointer">
+                className="inline-block absolute right-2 md:right-6 cursor-pointer">
                 <div className="indicator" >
                     {/* count >0才渲染畫面 */}
                     {count > 0 && <span className="indicator-item badge badge-accent text-white">{count}</span>}
@@ -28,7 +28,7 @@ function CartSummary() {
                     <ShoppingBasket strokeWidth={1.5} className="w-5 h-5 md:w-6 md:h-6 text-current group-hover:scale-105 transition-transform" />
 
                 </div>
-                <p className="text-xs opacity-60 mt-[-4px]">Shopping bag</p>
+                <p className="hidden md:block text-[0.5rem] md:text-[0.8rem] opacity-60 mt-[-0.2rem] md:mt-[-0.2rem] text-current">購物車</p>
             </nav>
             <BasketModal
                 isOpen={isOpen}
