@@ -1,13 +1,24 @@
 import books from '../json/books.json';
 import BookItem from './BookItem';
 
-function BookList() {
+function BookList({ books, isLoading }) {
     return (
-        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10'>{/*設定grid排版 設置RWD gap設置欄與欄間距*/}
-            {books.map((book) => (
-                <BookItem key={book.ID} book={book} />
-            ))}
-        </div>
+        <>
+            {isLoading ?
+                (<div className="flex justify-center mt-[20vh]">
+                    <span className="loading loading-infinity loading-xl"></span>
+                </div>
+                ) : (
+                    <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10'>{/*設定grid排版 設置RWD gap設置欄與欄間距*/}
+                        {books.map((book) => (
+                            <BookItem key={book.ID} book={book} />
+                        ))}
+                    </div>
+                )
+            }
+
+        </>
+
     );
 }
 
