@@ -1,5 +1,5 @@
-import { collection, deleteDoc, doc, getDoc, getDocs, query, setDoc, where } from "firebase/firestore";
-import { db } from "./firebaseConfig";
+import { collection, deleteDoc, doc, getDoc, getDocs, query, setDoc, updateDoc, where } from "firebase/firestore";
+import { auth, db } from "@/api/firebaseConfig";
 import books from "@/json/books.json";
 
 //取得所有文件
@@ -54,3 +54,35 @@ export const getBooksByCategory = async (category) => {
     return result;
 }
 
+//拿目前使用者的資訊
+export const getUserInfo = async () => {
+    //取得目前登入的使用者
+    const user = auth?.currentUser || null;
+    if (user) {
+        const docRef = doc(db, "users", user.uid);
+        //取得文件
+        //docRef是文件的參考，docSnap是文件的快照
+        const docSnap = await getDoc(docRef);
+        //得到實際資料
+        const userDoc = docSnap.data();
+        return {
+            uid: user.uid,
+            email: user.email,
+            ...userDoc,
+        };
+    }
+    else {
+        return {}
+    }
+}
+
+export const updateUserInfo = async ({ username, adrs, tel, uid }) => {
+    const docRef = doc(db, "users", uid);
+    await updateDoc(docRef, {
+        username,
+        adrs,
+        tel,
+    });
+    const user = auth.currentUser;
+    localStorage.setItem("user", JSON.stringify(user));
+}

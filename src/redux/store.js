@@ -2,18 +2,25 @@ import { configureStore } from "@reduxjs/toolkit";
 import cartReducer from './cartSlice';
 import storage from 'redux-persist/lib/storage'; // 使用 localStorage
 import { persistReducer, persistStore } from "redux-persist";
+import usersReducer from "./usersSlice";
 
 const persistConfig = {
     key: 'shoppingCart',
     storage,
 };
 
-const persistedCartReducer = persistReducer(persistConfig, cartReducer);
+const usersPersistConfig = {
+    key: 'users',
+    storage,
+};
 
+const persistedCartReducer = persistReducer(persistConfig, cartReducer);
+const persistedUsersReducer = persistReducer(usersPersistConfig, usersReducer);
 export const store = configureStore({
     reducer: {
         // cart 會由cartReducer管理
         cart: persistedCartReducer,
+        users: persistedUsersReducer
     },
     devTools: process.env.NODE_ENV !== 'production',
 
